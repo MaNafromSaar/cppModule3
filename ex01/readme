@@ -1,0 +1,22 @@
+If derived classes come in, "private" must be changed to "protected" 
+to allow for this
+
+Construction order:
+
+Base class (ClapTrap) constructs first
+Derived class (ScavTrap) constructs second
+This ensures the base class is fully initialized before the derived class builds upon it
+
+Destruction order:
+
+Derived class (ScavTrap) destructs first
+Base class (ClapTrap) destructs second
+This is reverse order of construction (Last-In-First-Out)
+
+Why this order matters:
+
+The derived class might depend on base class members
+Base class needs to exist before derived class can use its members
+Derived class should clean up its own resources before base class resources are destroyed
+This prevents accessing already destroyed base class members during derived class destruction
+
