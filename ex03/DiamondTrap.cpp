@@ -6,14 +6,14 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:32:15 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:40:53 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:53:15 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(std::string name) : 
-	ClapTrap("Rihanna"), 
+	ClapTrap(name + "_clap_name"), 
 	ScavTrap(name), 
 	FragTrap(name),
 	Name(name) 

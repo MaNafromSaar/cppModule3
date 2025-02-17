@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:51 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:44:06 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:51:26 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "DiamondTrap.hpp"
 
 int main(void) {
-	ClapTrap claptrap("Adam");
-	ScavTrap scavtrap("Bob");
-	FragTrap fragtrap("Carl");
-	DiamondTrap diamondtrap("Dave");
+	ClapTrap	claptrap("Adam");
+	ScavTrap	scavtrap("Bob");
+	FragTrap	fragtrap("Carl");
+	DiamondTrap	diamondtrap("Dave");
 
 	claptrap.attack("Dummy");
 	claptrap.takeDamage(5);
@@ -35,9 +35,6 @@ int main(void) {
 	fragtrap.beRepaired(3);
 	fragtrap.highFivesGuys();
 
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
 	diamondtrap.attack("Dummy");
 	diamondtrap.attack("Dummy");
 	diamondtrap.attack("Dummy");
