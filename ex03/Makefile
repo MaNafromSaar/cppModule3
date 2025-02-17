@@ -2,11 +2,14 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -I. -std=c++11
 PATH_SRC = ./
 HEADERS = ClapTrap.hpp\
-	ScavTrap.hpp
+	ScavTrap.hpp\
+	FragTrap.hpp\
+	DiamondTrap.hpp
 SRCS = main.cpp\
 	ClapTrap.cpp\
 	ScavTrap.cpp\
-	FragTrap.cpp
+	FragTrap.cpp\
+	DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 EXECS = FragTrap
 

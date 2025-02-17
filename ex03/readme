@@ -1,0 +1,36 @@
+Problem: Ambiguity
+A first approach showed that there is ambiguity in what to inherit from where.
+
+Fix: VIRTUAL base class
+
+Properties of the base class are used but it is not really being instantiated, just a virtual copy is used
+
+The virtual keyword tells the compiler:
+Create only one instance of ClapTrap for the entire hierarchy
+Share this single instance among all derived classes
+Resolve ambiguous member access automatically
+
+Why Only Base Level?
+Virtual inheritance is only needed when inheriting from ClapTrap
+ScavTrap and FragTrap don't create a diamond pattern themselves
+DiamondTrap inherits from both but doesn't need virtual itself
+
+Uses virtual inheritance to prevent multiple ClapTrap instances
+Explicitly specifies which class's members to use
+Properly initializes the virtual base class
+Creates a single instance of ClapTrap's members
+Resolves ambiguity in member access
+The inheritance diagram now looks like:
+
+       ClapTrap (virtual base)
+        /          \
+   ScavTrap      FragTrap
+        \          /
+        DiamondTrap
+
+Adjust destructor to operate on virtual for the base class
+
+	virtual ~ClapTrap();
+
+virtual inheritance and destructors work with both base class pointers/references and concrete instances. So make it a habit.
+

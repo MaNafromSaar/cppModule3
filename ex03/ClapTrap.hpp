@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:56 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 09:40:35 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:43:11 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ protected:
 	int 				AttackDamage;
 public:
 	ClapTrap(std::string name);
-	~ClapTrap();
-	void attack(std::string const & target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
+	virtual ~ClapTrap();
+	virtual void attack(std::string const & target);
+	virtual void takeDamage(unsigned int amount);
+	virtual void beRepaired(unsigned int amount);
 };
 
 #endif
