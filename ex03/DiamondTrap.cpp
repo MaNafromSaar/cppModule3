@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:32:15 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:53:15 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:56:41 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void DiamondTrap::attack(std::string const & target) {
 	else
 		this->EnergyPoints--;
 	std::cout << "DiamondTrap " << this->Name 
-	<< " deavstatingly (actually moderately) attacks " << target
+	<< " deavstatingly (actually just powerfully)\n attacks " << target
 	<< ", causing " << this->AttackDamage
 	<< " points of damage!" << std::endl;
 }

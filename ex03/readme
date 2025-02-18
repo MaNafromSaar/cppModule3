@@ -1,36 +1,63 @@
-Problem: Ambiguity
+# C++, Virtual Inheritance, Diamond Problem
+
+## Overview
+This exercise demonstrates the use of virtual inheritance to solve the diamond problem in C++.
+
+## Problem: Ambiguity
 A first approach showed that there is ambiguity in what to inherit from where.
 
-Fix: VIRTUAL base class
-
-Properties of the base class are used but it is not really being instantiated, just a virtual copy is used
+### Fix: VIRTUAL Base Class
+Properties of the base class are used but it is not really being instantiated, just a virtual copy is used.
 
 The virtual keyword tells the compiler:
-Create only one instance of ClapTrap for the entire hierarchy
-Share this single instance among all derived classes
-Resolve ambiguous member access automatically
+- Create only one instance of ClapTrap for the entire hierarchy.
+- Share this single instance among all derived classes.
+- Resolve ambiguous member access automatically.
 
-Why Only Base Level?
-Virtual inheritance is only needed when inheriting from ClapTrap
-ScavTrap and FragTrap don't create a diamond pattern themselves
-DiamondTrap inherits from both but doesn't need virtual itself
+### Why Only Base Level?
+- Virtual inheritance is only needed when inheriting from ClapTrap.
+- ScavTrap and FragTrap don't create a diamond pattern themselves.
+- DiamondTrap inherits from both but doesn't need virtual itself.
 
-Uses virtual inheritance to prevent multiple ClapTrap instances
-Explicitly specifies which class's members to use
-Properly initializes the virtual base class
-Creates a single instance of ClapTrap's members
-Resolves ambiguity in member access
-The inheritance diagram now looks like:
+## Problem: Inheriting Values
+Inheriting values was ambiguous and did not work as expected.
 
+### Fix: Initialize Default Values in Class Definition
+- Defines constants in the parent classes.
+- Makes inheritance relationships clear.
+- Maintains proper initialization order.
+- Uses virtual inheritance correctly.
+- Avoids hardcoding values in DiamondTrap.
+- Makes it easy to modify values in one place.
+
+## Solution
+- Uses virtual inheritance to prevent multiple ClapTrap instances.
+- Explicitly specifies which class's members to use.
+- Properly initializes the virtual base class.
+- Creates a single instance of ClapTrap's members.
+- Resolves ambiguity in member access.
+
+## Inheritance Diagram
+The inheritance diagram now looks like a diamond:
+
+```
        ClapTrap (virtual base)
         /          \
    ScavTrap      FragTrap
         \          /
         DiamondTrap
+```
 
-Adjust destructor to operate on virtual for the base class
+## Adjust Destructor
+Adjust the destructor to operate on virtual for the base class:
 
-	virtual ~ClapTrap();
+```cpp
+virtual ~ClapTrap();
+```
 
-virtual inheritance and destructors work with both base class pointers/references and concrete instances. So make it a habit.
+Virtual inheritance and destructors work with both base class pointers/references and concrete instances. So make it a habit.
 
+---
+
+**Author**: Matthias Naumann  
+**GitHub**: [MaNafromSaar](https://github.com/MaNafromSaar)
