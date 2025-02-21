@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:56 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/16 17:17:20 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:26:31 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,27 @@
 
 class ClapTrap
 {
-private:
+protected:
 	const std::string	Name;
 	int 				HitPoints;
 	int 				EnergyPoints;
 	int 				AttackDamage;
 public:
 	ClapTrap(std::string name);
-	~ClapTrap();
-	void attack(std::string const & target);
+	virtual ~ClapTrap();
+	ClapTrap(const ClapTrap &copy);
+	ClapTrap &operator=(const ClapTrap &copy);
+	std::string getName() const;
+	int getHitPoints() const;
+	int getEnergyPoints() const;
+	int getAttackDamage() const;
+	void setHitPoints(int hitPoints);
+	void setEnergyPoints(int energyPoints);
+	void setAttackDamage(int attackDamage);
+	void attack(ClapTrap &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
+	void displayClapTrap() const;
 };
 
 #endif

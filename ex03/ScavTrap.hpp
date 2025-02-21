@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:34:17 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:43:37 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:11:05 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ class ScavTrap : virtual public ClapTrap {
 		static const int defaultAttackDamage = 20;
 	public:
 		ScavTrap(std::string name);
-		~ScavTrap();
-		void attack(std::string const & target);
+		virtual ~ScavTrap();
+		ScavTrap(const ScavTrap &copy);
+		ScavTrap &operator=(const ScavTrap &copy);
+		void displayScavTrap() const;
 		void guardGate(void);
 };
 

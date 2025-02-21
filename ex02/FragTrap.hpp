@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:05:16 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 09:16:59 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:07:39 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 class FragTrap : public ClapTrap {
 	public:
 		FragTrap(std::string name);
-		~FragTrap();
-		void attack(std::string const & target);
+		virtual ~FragTrap();
+		FragTrap(const FragTrap &copy);
+		FragTrap &operator=(const FragTrap &copy);
+		void displayFragTrap() const;
 		void highFivesGuys(void);
 };
 

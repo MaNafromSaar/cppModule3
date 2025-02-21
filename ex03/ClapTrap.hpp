@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:56 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:43:11 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:05:30 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <iostream>
 
-class ClapTrap {
+class ClapTrap
+{
 protected:
 	const std::string	Name;
 	int 				HitPoints;
@@ -24,9 +25,19 @@ protected:
 public:
 	ClapTrap(std::string name);
 	virtual ~ClapTrap();
-	virtual void attack(std::string const & target);
-	virtual void takeDamage(unsigned int amount);
-	virtual void beRepaired(unsigned int amount);
+	ClapTrap(const ClapTrap &copy);
+	ClapTrap &operator=(const ClapTrap &copy);
+	std::string getName() const;
+	int getHitPoints() const;
+	int getEnergyPoints() const;
+	int getAttackDamage() const;
+	void setHitPoints(int hitPoints);
+	void setEnergyPoints(int energyPoints);
+	void setAttackDamage(int attackDamage);
+	void attack(ClapTrap &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+	void displayClapTrap() const;
 };
 
 #endif

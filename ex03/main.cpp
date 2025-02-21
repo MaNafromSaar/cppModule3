@@ -6,7 +6,7 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:51 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/17 11:51:26 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:33:06 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,47 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-int main(void) {
-	ClapTrap	claptrap("Adam");
-	ScavTrap	scavtrap("Bob");
-	FragTrap	fragtrap("Carl");
-	DiamondTrap	diamondtrap("Dave");
+int main() {
+    ClapTrap *clap = new ClapTrap("Clap");//construction via new
+    ScavTrap *scav = new ScavTrap("Scav");//needs to be deleted manually
+	FragTrap *frag = new FragTrap("Frag");
+	DiamondTrap *Dave = new DiamondTrap("Dave");
 
-	claptrap.attack("Dummy");
-	claptrap.takeDamage(5);
-	claptrap.beRepaired(3);
+	clap->displayClapTrap();
+	scav->displayScavTrap();
+	frag->displayFragTrap();
 
-	scavtrap.attack("Dummy");
-	scavtrap.takeDamage(5);
-	scavtrap.beRepaired(3);
-	scavtrap.guardGate();
+    clap->attack(*scav);
+	clap->displayClapTrap();
+	scav->displayScavTrap();
+	scav->attack(*clap);
+	scav->displayScavTrap();
+    scav->takeDamage(5);
+	scav->displayScavTrap();
+	scav->beRepaired(3);
+	scav->displayScavTrap();
+    frag->attack(*scav);
+	scav->displayScavTrap();
+	scav->guardGate();
+	frag->attack(*scav);
+	scav->displayScavTrap();
+	scav->attack(*frag);
+	frag->displayFragTrap();
+	frag->attack(*scav);
+	frag->attack(*scav);
+	frag->highFivesGuys();
+	Dave->displayDiamondTrap();
+	Dave->attack(*frag);
+	Dave->attack(*frag);
+	Dave->beRepaired(3);
+	Dave->displayDiamondTrap();
+	Dave->attack(*frag);
+	Dave->whoAmI();
 
-	fragtrap.attack("Dummy");
-	fragtrap.takeDamage(5);
-	fragtrap.beRepaired(3);
-	fragtrap.highFivesGuys();
 
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.attack("Dummy");
-	diamondtrap.takeDamage(5);
-	diamondtrap.beRepaired(3);
-	diamondtrap.whoAmI();
-	
-	return 0;
+
+	delete Dave;
+
+    return 0;
+
 }

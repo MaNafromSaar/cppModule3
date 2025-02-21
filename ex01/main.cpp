@@ -6,25 +6,34 @@
 /*   By: mnaumann <mnaumann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:03:51 by mnaumann          #+#    #+#             */
-/*   Updated: 2025/02/16 17:52:50 by mnaumann         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:40:52 by mnaumann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-int main(void) {
-	ClapTrap claptrap("ClapTrap");
-	ScavTrap scavtrap("ScavTrap");
+int main() {
+    ClapTrap *clap = new ClapTrap("Clap");//construction via new
+    ScavTrap *scav = new ScavTrap("Scav");//needs to be deleted manually
 
-	claptrap.attack("Dummy");
-	claptrap.takeDamage(5);
-	claptrap.beRepaired(3);
+	clap->displayClapTrap();
+	scav->displayScavTrap();
 
-	scavtrap.attack("Dummy");
-	scavtrap.takeDamage(5);
-	scavtrap.beRepaired(3);
-	scavtrap.guardGate();
+    clap->attack(*scav);
+	clap->displayClapTrap();
+	scav->displayScavTrap();
+	scav->attack(*clap);
+	scav->displayScavTrap();
+    scav->takeDamage(5);
+	scav->displayScavTrap();
+	scav->beRepaired(3);
+	scav->displayScavTrap();
+    scav->takeDamage(9);
 	
-	return 0;
+	scav->guardGate();
+
+	delete scav;
+
+    return 0;
 }

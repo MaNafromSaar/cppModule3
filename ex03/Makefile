@@ -11,7 +11,7 @@ SRCS = main.cpp\
 	FragTrap.cpp\
 	DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-EXECS = FragTrap
+EXECS = Rihanna
 
 all: $(EXECS)
 
